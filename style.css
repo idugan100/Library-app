@@ -1,0 +1,26 @@
+#wrapper{
+    display: flex;
+    border:5px solid red;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    
+    height:200px;
+    width:200px;
+    background-color: salmon;
+    border:5px solid navy;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:15px;
+    border-radius: 10px;
+   
+}
+.child{
+   margin:7px;
+    color: navy;
+
+}
