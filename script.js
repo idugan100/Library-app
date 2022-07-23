@@ -14,53 +14,77 @@ book.prototype.info=function(){
 let myLibary=[];
 
 function addBook(title,author,pages,isread){
-    myLibary.push(new book(title,author,pages,isread))
+    myLibary.push(new book(title,author,pages,isread,))
 }
 
-function renderpage(){
-    for(i=0;i<myLibary.length;i++){
-        myLibary[i].index=i;
+function removebook(index){
+   console.log("removed at " +index);
+
+    
+}
+
+function renderpage(item){
+    
+    let container=document.getElementById("wrapper");
+    
         let element=document.createElement("div");
         element.setAttribute("class","card");
         element.setAttribute("display","inline");
 
         let elementTitle=document.createElement("div");
         elementTitle.setAttribute("class","child");
-        elementTitle.innerHTML=myLibary[i].title;
+        elementTitle.innerHTML=item.title;
 
         let elementAuthor=document.createElement("div");
         elementAuthor.setAttribute("class","child");
-        elementAuthor.innerHTML=myLibary[i].author;
+        elementAuthor.innerHTML=item.author;
 
         let elementPages=document.createElement("div");
         elementPages.setAttribute("class","child");
-        elementPages.innerHTML=myLibary[i].pages+" pages";
+        elementPages.innerHTML=item.pages+" pages";
 
         let readStatus=document.createElement("input");
         readStatus.setAttribute("class","child");
         readStatus.setAttribute("type","checkbox")
-        readStatus.checked=myLibary[i].isread;
+        readStatus.checked=item.isread;
 
         let removeButton=document.createElement("button");
         removeButton.innerHTML="Remove book";
-        removeButton.addEventListener("click",function(i){
-            let j=i
-            
-            myLibary.slice(1,1);
-            
-            
+        removeButton.addEventListener("click",()=>{
+            myLibary.splice(item.index,1);
+            displayPage();
+           
         })
         
         
 
-        let =document.getElementById("wrapper").appendChild(element)
+       container.appendChild(element)
         element.appendChild(elementTitle);
         element.appendChild(elementAuthor);
         element.appendChild(elementPages)
         element.appendChild(readStatus)
         element.appendChild(removeButton);
     }
+
+function displayPage(){
+    let container=document.getElementById("wrapper");
+    while(container.firstChild){
+        container.removeChild(container.firstChild)
+    }
+    for(let i=0; i<myLibary.length;i++){
+        
+        myLibary[i].index=i;
+            renderpage(myLibary[i]);
+        }
+    }
+
+let newbookbutton=document.querySelector(".addBookButton")
+newbookbutton.addEventListener('click',()=>{
+    addBook("harry potter", "Jk rowling", "00", true);
+    displayPage();
 }
+)
 addBook("harry potter", "Jk rowling", "367", true);
 addBook("harry potter", "Jk rowling", "367", true);
 
+displayPage();
