@@ -1,9 +1,46 @@
 #wrapper{
     display: flex;
-    border:5px solid red;
+    
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+.buttonwrapper, .header{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;;
+
+}
+.addBookButton{
+    height: 3rem;
+    width:9rem;
+    background-color: navy;
+    color:white;
+    font-size: 1rem;
+    border-radius: 10px;
+    
+}
+* {
+    margin:0px;
+    padding:0px;
+}
+.popup{
+    /* display: none; */
+    position:fixed;
+    top:30vh;
+    left: 40vw;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 10px solid navy;
+    border-radius: 10px;
+    height: 25vh;
+    width:20vw;
+    
+}
+body{
+    background-color: azure;
 }
 .card{
     
