@@ -9,10 +9,26 @@
     <script src="script.js" defer></script>
 </head>
 <body >
+   
     <div class="header"><h1>Booklist</h1></div>
     <div class="buttonwrapper"><button class="addBookButton">New Book</button></div>
     <div id="wrapper"></div>
-    <div class="popup">hello</div>
+    <div class="popupOuter"><div class="popup">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+       
+        
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author">
+        <label for="pages">Pages:</label>
+        <input type="text" id="pages" id="pages">
+        <div>
+        <label for="isread">Read?</label>
+        <input type="checkbox" name="isread" id="isread">
+        </div>
+        <button id="bookDetailSubmit">Add Book</button>
+
+    </div> </div>
    
     
     

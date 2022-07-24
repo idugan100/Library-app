@@ -24,8 +24,16 @@
     margin:0px;
     padding:0px;
 }
+  
+.popupOuter{
+    display: none;
+ 
+}
+label,input,button{
+    margin:5px;
+}
 .popup{
-    /* display: none; */
+    padding: 10px;
     position:fixed;
     top:30vh;
     left: 40vw;
@@ -33,6 +41,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border: 10px solid navy;
     border-radius: 10px;
     height: 25vh;
