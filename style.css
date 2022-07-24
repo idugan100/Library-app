@@ -32,11 +32,17 @@
 label,input,button{
     margin:5px;
 }
+.read{
+    background-color: green;
+}
+.notread{
+    background-color: red;
+}
 .popup{
     padding: 10px;
     position:fixed;
-    top:30vh;
-    left: 40vw;
+    top:0px;
+    left: 0px;
     background-color: azure;
     display: flex;
     flex-direction: column;
@@ -65,7 +71,7 @@ body{
     border-radius: 10px;
    
 }
-.child{
+.read,.notread,.child{
    margin:7px;
     color: navy;
 

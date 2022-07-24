@@ -13,9 +13,7 @@ book.prototype.info=function(){
 
 let myLibary=[];
 
-function addBook(title,author,pages,isread){
-    myLibary.push(new book(title,author,pages,isread,))
-}
+
 
 
 
@@ -39,12 +37,18 @@ function renderpage(item){
         elementPages.setAttribute("class","child");
         elementPages.innerHTML=item.pages+" pages";
 
-        let readStatus=document.createElement("input");
-        readStatus.setAttribute("class","child");
-        readStatus.setAttribute("type","checkbox")
-        if(item.isread=="on"){readStatus.checked=true}
+        let readStatus=document.createElement("div");
+        
+        if(item.isread==true){
+            
+            console.log("class is read")
+            readStatus.setAttribute("class",'read');
+            readStatus.innerHTML="Read"
+        }
         else{
-            readStatus.checked=false;
+            console.log("class is unread")
+            readStatus.setAttribute("class","notread")
+            readStatus.innerHTML="Not Read"
         }
         
 
@@ -72,35 +76,35 @@ function displayPage(){
         container.removeChild(container.firstChild)
     }
     for(let i=0; i<myLibary.length;i++){
-        
+        console.log("break")
         myLibary[i].index=i;
-            renderpage(myLibary[i]);
+        renderpage(myLibary[i]);
         }
-    }
+     }
 
 let newbookbutton=document.querySelector(".addBookButton")
 newbookbutton.addEventListener('click',()=>{
-    let newBookBox=document.querySelector(".popupOuter")
-    newBookBox.style.display="block";
+    document.querySelector(".popupOuter").style.display="block";
+ })
+
     let submitbook=document.querySelector('#bookDetailSubmit')
-submitbook.addEventListener('click',()=>{
+    submitbook.addEventListener('click',()=>{
     let title=document.querySelector('#title').value;
     let author=document.querySelector('#author').value;
     let pages=document.querySelector('#pages').value;
-    let isread=document.querySelector('#isread').value;
-    console.log(isread);
-    addBook(title,author,pages,isread);
+    let isread=document.querySelector('#isread').checked;
+    console.log(isread)
+    
+    
+    myLibary.push(new book(title,author,pages,isread))
     let newBookBox=document.querySelector(".popupOuter")
     newBookBox.style.display="none";
     displayPage();
-
-})
     
 }
 )
 
 
-addBook("harry potter", "Jk rowling", "367", "on");
-addBook("harry potter", "Jk rowling", "367", "off");
+
 
 displayPage();
