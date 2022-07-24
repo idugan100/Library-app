@@ -34,9 +34,15 @@ label,input,button{
 }
 .read{
     background-color: green;
+    border: 5px solid navy;
+    border-radius: 10px;
+    padding:5px;
 }
 .notread{
     background-color: red;
+    border:5px solid navy;
+    border-radius: 10px;
+    padding:5px;
 }
 .popup{
     padding: 10px;
